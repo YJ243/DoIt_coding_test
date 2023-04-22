@@ -36,7 +36,7 @@ int main(){
     }
 
     for(int i=1; i<=n; i++){
-        if(visited[i] == 0){ /
+        if(visited[i] == 0){ 
             DFS(i, visited, a);
             answer++;
         }

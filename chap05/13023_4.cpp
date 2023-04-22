@@ -21,29 +21,30 @@ int main(){
         a[e].push_back(v);
 
     }
-  cout << "hi "<< '\n';
+    visited = vector<bool>(n,false);
     for(int i=0; i<n; i++){
-        visited = vector<bool>(n, false);
-        int depth = 1;
-        dfs(i, depth);
         if(arrive) break;
-    }
-    if(arrive) cout<< "1" << '\n';
-    else cout<<"0"<<'\n';
-}
+        dfs(i,1);
 
+    }
+    if(arrive) cout<<1<<'\n';
+    else cout<<0<<'\n';
+
+}
 void dfs(int node, int depth){
-    if(depth==5||arrive){
-        arrive=true;
+    if(depth==5){
+        arrive = 1;
         return;
     }
+    if(visited[node]==true)
+        return;
     visited[node] = true;
-    
+
     for(int i : a[node]){
-        // 현재 노드에 연결된 노드에 대해서 탐색
-        if(visited[i] == false){
+        if(visited[i]==false){
             dfs(i, depth+1);
         }
     }
-
+    visited[node]=false;
+    cout<<node<<'\n';
 }
