@@ -32,7 +32,7 @@ int main(){
 
 }
 void dfs(int node, int depth){
-    if(depth==5){
+    if(depth==5||arrive){
         arrive = 1;
         return;
     }
